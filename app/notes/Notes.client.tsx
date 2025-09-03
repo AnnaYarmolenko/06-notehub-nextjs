@@ -5,12 +5,12 @@ import { useDebouncedCallback } from 'use-debounce';
 import css from './page.module.css';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';
-import { fetchNotes } from '../lib/api';
-import SearchBox from '../components/SearchBox/SearchBox';
-import Modal from '../components/Modal/Modal';
-import NoteForm from '../components/NoteForm/NoteForm';
-import Pagination from '../components/Pagination/Pagination';
-import NoteList from '../components/NoteList/NoteList';
+import { fetchNotes } from '@/lib/api';
+import SearchBox from '@/components/SearchBox/SearchBox';
+import Modal from '@/components/Modal/Modal';
+import NoteForm from '@/components/NoteForm/NoteForm';
+import Pagination from '@/components/Pagination/Pagination';
+import NoteList from '@/components/NoteList/NoteList';
 
 export default function NotesClient() {
   const [searchQuery, setSearchQuery] = useState<string>('');

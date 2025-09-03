@@ -5,7 +5,7 @@ import {
 } from '@tanstack/react-query';
 import css from './page.module.css';
 import NoteDetailsClient from './NoteDetails.client';
-import { fetchNoteById } from '@/app/lib/api';
+import { fetchNoteById } from '@/lib/api';
 
 type Props = {
   params: {
