@@ -17,7 +17,10 @@ export default function NotesClient() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const debouncedSearchQuery = useDebouncedCallback(setSearchQuery, 300);
+  const debouncedSearchQuery = useDebouncedCallback((query: string) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
+  }, 300);
 
   const { data, isSuccess } = useQuery({
     queryKey: ['notes', searchQuery, currentPage],
@@ -41,7 +44,7 @@ export default function NotesClient() {
       <header className={css.toolbar}>
         <SearchBox value={searchQuery} onSearch={debouncedSearchQuery} />
         <Toaster position="top-center" />
-        {isSuccess && totalPages > 1 && (
+        {isSuccess && (
           <Pagination
             totalPages={totalPages}
             currentPage={currentPage}
